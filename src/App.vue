@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 import CardsList from './components/CardsList'
 
@@ -14,6 +14,19 @@ export default {
   components: { CardsList },
   computed: {
     ...mapState({ cards: state => state.cards }),
+  },
+  created() {
+    this.getCards()
+    window.addEventListener('beforeunload', this.saveCards)
+  },
+  destroyed() {
+    window.removeEventListener('beforeunload', this.saveCards)
+  },
+  methods: {
+    ...mapActions({
+      getCards: 'getCards',
+      saveCards: 'saveCards',
+    }),
   },
 }
 </script>

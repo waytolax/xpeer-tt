@@ -49,6 +49,22 @@ const actions = {
 
     dispatch('updateCard', updatedCard)
   },
+  saveCards({ state }) {
+    try {
+      const cards = JSON.stringify(state.cards)
+      localStorage.setItem('my-cards', cards)
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  getCards({ commit }) {
+    try {
+      const cards = JSON.parse(localStorage.getItem('my-cards'))
+      commit('setCards', cards || [])
+    } catch (e) {
+      console.log(e)
+    }
+  },
 }
 
 const getters = {

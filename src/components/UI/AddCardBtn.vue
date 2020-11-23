@@ -14,6 +14,7 @@ export default {}
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-height: calc(100vh - 80px);
   padding-top: 90px;
   border: 1px dashed #ededed;
   border-radius: 5px;
