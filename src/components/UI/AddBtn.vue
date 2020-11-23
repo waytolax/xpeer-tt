@@ -13,7 +13,6 @@ export default {}
 <style lang="less" scoped>
 .add-btn {
   display: flex;
-  flex-shrink: 0;
   padding: 5px 10px 5px 40px;
   border-radius: 5px;
   background: 10px center / 20px no-repeat;
