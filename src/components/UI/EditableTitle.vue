@@ -8,7 +8,7 @@
     placeholder="Title"
     :value="value"
     v-bind="$attrs"
-    @input="resizeArea"
+    @input="resizeArea($event.target)"
     @focus="startEdit($event.target)"
     @blur="stopEdit"
     @keydown.enter="submitChanges"
@@ -30,12 +30,14 @@ export default {
     }
   },
   mounted() {
-    this.startEdit(this.$el)
+    this.resizeArea(this.$el)
+
+    if (!this.$el.value) this.startEdit(this.$el)
   },
   methods: {
-    resizeArea(ev) {
-      ev.target.style.height = 'auto'
-      ev.target.style.height = ev.target.scrollHeight + 'px'
+    resizeArea(el) {
+      el.style.height = 'auto'
+      el.style.height = el.scrollHeight + 'px'
     },
     startEdit(el) {
       this.isEditing = true

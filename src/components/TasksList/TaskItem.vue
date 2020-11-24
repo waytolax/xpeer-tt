@@ -3,6 +3,7 @@
     <div class="task-item__header">
       <EditableTitle
         class="task-item__title"
+        placeholder="Task title"
         :value="task.title"
         @change="updateTitle"
       />

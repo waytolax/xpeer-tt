@@ -3,6 +3,7 @@
     <div class="card-item__header">
       <EditableTitle
         class="card-item__title"
+        placeholder="Card title"
         :value="card.title"
         @change="updateTitle"
       />
